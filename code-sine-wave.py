@@ -1,3 +1,11 @@
+# SPDX-FileCopyrightText: 2018 Kattni Rembor for Adafruit Industries
+#
+# SPDX-License-Identifier: MIT
+
+# Example for how to play a tone using the Raspberry Pi Pico and the MAX98357 breakout board.
+# Derived from: https://learn.adafruit.com/adafruit-max98357-i2s-class-d-mono-amp/circuitpython-wiring-test
+#
+# See README.md for notes.
 
 import time
 import array
@@ -17,6 +25,7 @@ for i in range(length):
 
 # For Raspberry Pi Pico(bit_clock_pin, word_select_pin, data_pin, ...)
 audio = audiobusio.I2SOut(board.GP3, board.GP4, board.GP2)
+
 # For Feather M0 Express, ItsyBitsy M0 Express, Metro M0 Express
 # audio = audiobusio.I2SOut(board.D1, board.D0, board.D9)
 # For Feather M4 Express

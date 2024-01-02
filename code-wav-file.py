@@ -2,21 +2,11 @@
 #
 # SPDX-License-Identifier: MIT
 
-# Example for how to play a .wav file using the Raspberry Pi Pico and the MAX98357 breakout board.GP2
+# Example for how to play a .wav file using the Raspberry Pi Pico and the MAX98357 breakout board.
+# Derived from: https://learn.adafruit.com/adafruit-max98357-i2s-class-d-mono-amp/circuitpython-wiring-test
+#
+# See README.md for notes.
 
-# This DAC and amplifier uses the I2S protocol to be able to stream audio out to a speaker.
-# My Wiring:
-#   VIN to 3.3V on the pico
-#   GND to GND on the pico
-#   DIN to GP2
-#   BCLK to GP3
-#   LRC to GP4
-#
-# You can change the GPIO pins on the pico if you want to change the wiring, but you
-# must make BCLK and LRC adjacent pins
-#
-# You can leave the GAIN pin disconnected for default output if you are using 3.3V and an 8Ohm speaker.
-#
 import audiocore
 import board
 import audiobusio
@@ -27,8 +17,9 @@ wave_file = open("batman_theme_x_11khz.wav", "rb")
 wave = audiocore.WaveFile(wave_file)
 
 # For Raspberry Pi Pico I used GP2 = data(DIN), GP3 = bit clock(BCLK), GP4 = word select (LRC)
-#audio = audiobusio.I2SOut(board.GP3, board.GP4, board.GP2)
-audio = audiobusio.I2SOut(board.GP14, board.GP15, board.GP2)
+audio = audiobusio.I2SOut(board.GP3, board.GP4, board.GP2)
+# Or you can use different pins, just make sure the first 2 pins are next to each other
+#audio = audiobusio.I2SOut(board.GP14, board.GP15, board.GP2)
 
 
 while True:
