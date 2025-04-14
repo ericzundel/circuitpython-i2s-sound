@@ -1,6 +1,9 @@
 # circuitpython-i2s-sound
 This is a project that shows you how to play sound using Circuit Python. This example uses the environment we use in our engineering classes (Raspberry Pi Pico W) along with a MAX98357 amplifier chip.
 
+![MAX98357 Wiring photo](https://ericzundel.github.io/circuitpython-i2s-sound/MAX98357-wiring.jpg)
+
+
 ## Summary
 
 This repo contains two python files derived from the 
