@@ -3,7 +3,7 @@ This is a project that shows you how to play sound using Circuit Python. This ex
 
 ![MAX98357 Wiring photo](https://ericzundel.github.io/circuitpython-i2s-sound/MAX98357-wiring.jpg)
 
-
+![Fritzring diagram of circuit](https://ericzundel.github.io/circuitpython-i2s-sound/fritzring-diagram.png)
 ## Summary
 
 This repo contains two python files derived from the 
