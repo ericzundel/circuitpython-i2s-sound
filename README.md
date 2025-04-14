@@ -3,8 +3,8 @@ This is a project that shows you how to play sound using Circuit Python. This ex
 
 ## Summary
 
-This repo contains two python files derived from the Adafruit learning website:
-https://learn.adafruit.com/adafruit-max98357-i2s-class-d-mono-amp
+This repo contains two python files derived from the 
+[Adafruit learning website](https://learn.adafruit.com/adafruit-max98357-i2s-class-d-mono-amp).
 
 It shows how to wire up the breakout board to the Pico and has adapted the Adafruit examples for how to play a WAV file or a sine wave.
 
@@ -18,6 +18,12 @@ A Max98357 breakout board and speaker can be purchased from Adafruit.  Please su
 
 ## Wiring
 
+A simple pushbutton is used to trigger the audio
+
+Switch:
+-   GP16 to Switch  
+-   Switch to GND
+
 This DAC and amplifier uses the I2S protocol to be able to stream audio out to a speaker.
 
 My Wiring:
@@ -26,6 +32,7 @@ My Wiring:
 -   DIN to GP2
 -   BCLK to GP3
 -   LRC to GP4
+
 
 You can change the GPIO pins on the pico if you want to change the wiring, but you
  must make BCLK and LRC adjacent pins

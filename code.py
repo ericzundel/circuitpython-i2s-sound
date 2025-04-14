@@ -7,9 +7,15 @@
 #
 # See README.md for notes.
 
-import audiocore
 import board
+import audiocore
 import audiobusio
+from digitalio import DigitalInOut, Direction, Pull
+
+# Initialize the flipper button as an input
+button = DigitalInOut(board.GP16)
+button.direction = Direction.INPUT
+button.pull = Pull.UP
 
 # Wav file must be 16bit, <= 22 Khz. You can convert your file using the Audacity app
 # See also https://learn.adafruit.com/adafruit-wave-shield-audio-shield-for-arduino/convert-files
@@ -21,8 +27,16 @@ audio = audiobusio.I2SOut(board.GP3, board.GP4, board.GP2)
 # Or you can use different pins, just make sure the first 2 pins are next to each other
 #audio = audiobusio.I2SOut(board.GP14, board.GP15, board.GP2)
 
-
 while True:
-    audio.play(wave)
-    while audio.playing:
-        pass
+    # Wait for the user to press a button
+    if (button.value == False) :
+        # Each time you call audio.play() the currently playing sound clip
+        # will stop and it will start playing the new sound.
+        audio.play(wave)
+
+        # This loop waits until the audio is finished playing.
+        # The entire program pauses during this loop, so you might
+        # want to omit it for a project where you want to continue
+        # responding to other inputs.
+        while audio.playing:
+            pass
